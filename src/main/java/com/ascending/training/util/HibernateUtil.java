@@ -40,4 +40,28 @@ public class HibernateUtil {
                 String dbUser = System.getProperty("database.user");
                 String dbPassword = System.getProperty("database.password");
 
+                Configuration configuration = new Configuration();
+                Properties settings = new Properties();
+                settings.put(Environment.DRIVER, dbDriver);
+                settings.put(Environment.DIALECT, dbDialect);
+                settings.put(Environment.URL, dbUrl);
+                settings.put(Environment.USER, dbUser);
+                settings.put(Environment.PASS, dbPassword);
+                settings.put(Environment.SHOW_SQL, "true");
+                settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
+                settings.put(Environment.HBM2DDL_AUTO, "validate");
+                configuration.setProperties(settings);
+
+                EntityScanner.scanPackages(modelPackages).addTo(configuration);
+                StandardServiceRegistryBuilder registryBuilder = new StandardServiceRegistryBuilder();
+                ServiceRegistry serviceRegistry = registryBuilder.applySettings(configuration.getProperties()).build();
+                sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+            }
+            catch (Exception e) {
+                logger.error(e.getMessage(),e);
+            }
+        }
+
+        return sessionFactory;
+    }
 }
