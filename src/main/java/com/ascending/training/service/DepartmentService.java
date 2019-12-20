@@ -47,7 +47,4 @@ public class DepartmentService {
         return departmentDao.getDepartmentAndEmployees(deptName);
     }
 
-    public List<Object[]> getDepartmentAndEmployeesAndAccounts(String deptName) {
-        return departmentDao.getDepartmentAndEmployeesAndAccounts(deptName);
-    }
-}
+ 
