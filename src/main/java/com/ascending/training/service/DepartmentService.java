@@ -31,23 +31,3 @@ public class DepartmentService {
     public boolean delete(String deptName) {
         return departmentDao.delete(deptName);
     }
-
-    public List<Department> getDepartments() {
-        return departmentDao.getDepartments();
-    }
-    public List<Department> getDepartmentsWithChildren() {
-        return departmentDao.getDepartmentsWithChildren();
-    }
-
-    public Department getDepartmentByName(String deptName) {
-        return departmentDao.getDepartmentByName(deptName);
-    }
-
-    public List<Object[]> getDepartmentAndEmployees(String deptName) {
-        return departmentDao.getDepartmentAndEmployees(deptName);
-    }
-
-    public List<Object[]> getDepartmentAndEmployeesAndAccounts(String deptName) {
-        return departmentDao.getDepartmentAndEmployeesAndAccounts(deptName);
-    }
-}
