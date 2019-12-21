@@ -26,11 +26,4 @@ public class EmployeeService {
         return employeeDao.updateEmployeeAddress(name, address);
     }
 
-    public List<Employee> getEmployees() {
-        return employeeDao.getEmployees();
-    }
-
-    public Employee getEmployeeByName(String name) {
-        return employeeDao.getEmployeeByName(name);
-    }
-}
+   
