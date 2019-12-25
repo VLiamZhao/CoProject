@@ -26,4 +26,10 @@ public class AccountController {
     @Autowired private AccountService accountService;
     @Autowired private EmployeeService employeeService;
 
-   
+    //@GetMapping(value = "", produces = "application/json")
+    @RequestMapping(value = "", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public List<Account> getAccounts() {
+        return accountService.getAccounts();
+    }
+
+    
