@@ -33,4 +33,10 @@ public class AccountController {
     }
 
     @RequestMapping(value = "/{employeeName}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public Set<Account> getAccount(@PathVariable String employeeName) {
+        Employee employee = employeeService.getEmployeeByName(employeeName);
+        if (employee != null) return employee.getAccounts();
+        return null;
+    }
+
     
