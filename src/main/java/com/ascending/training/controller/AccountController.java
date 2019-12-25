@@ -32,4 +32,5 @@ public class AccountController {
         return accountService.getAccounts();
     }
 
+    @RequestMapping(value = "/{employeeName}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
     
