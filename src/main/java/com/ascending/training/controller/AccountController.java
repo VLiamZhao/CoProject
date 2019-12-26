@@ -41,5 +41,11 @@ public class AccountController {
 
     //@PostMapping(value = "/{employeeName}", consumes = "application/json")
     @RequestMapping(value = "/{employeeName}", method = RequestMethod.POST, consumes = {MediaType.APPLICATION_JSON_VALUE})
-    
+    public String creatAccount(@PathVariable String employeeName, @RequestBody Account account) {
+        logger.debug(String.format("Employee name: %s, account: %s", employeeName, account.toString()));
+        String msg = "The account was created.";
+        Account act = accountService.save(account, employeeName);
+        if (act!=null) logger.error("The account was not created.");
+        return msg;
+    }
 }
