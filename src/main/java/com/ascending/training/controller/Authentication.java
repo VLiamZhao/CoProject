@@ -22,4 +22,8 @@ import javax.servlet.http.HttpServletResponse;
 
 @RestController
 @RequestMapping(value = {"/auth"})
-
+public class Authentication {
+    @Autowired private Logger logger;
+    @Autowired private UserService userService;
+    
+}
