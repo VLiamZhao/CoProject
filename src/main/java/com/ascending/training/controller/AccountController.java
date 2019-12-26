@@ -39,4 +39,7 @@ public class AccountController {
         return null;
     }
 
+    //@PostMapping(value = "/{employeeName}", consumes = "application/json")
+    @RequestMapping(value = "/{employeeName}", method = RequestMethod.POST, consumes = {MediaType.APPLICATION_JSON_VALUE})
     
+}
