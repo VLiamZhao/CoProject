@@ -25,5 +25,9 @@ import javax.servlet.http.HttpServletResponse;
 public class Authentication {
     @Autowired private Logger logger;
     @Autowired private UserService userService;
-    
+    private String errorMsg = "The email or password is not correct.";
+    private String tokenKeyWord = "Authorization";
+    private String tokenType = "Bearer";
+
+   
 }
