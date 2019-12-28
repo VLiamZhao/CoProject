@@ -31,6 +31,22 @@ public class Authentication {
 
     @RequestMapping(value = "", method = RequestMethod.GET, produces = "application/json")
     public ResponseEntity authenticate(@RequestBody User user) {
-        
+        String token = "";
+
+        try {
+            logger.debug(user.toString());
+            User u = userService.getUserByCredentials(user.getEmail(), user.getPassword());
+            if (u == null) return ResponseEntity.status(HttpServletResponse.SC_NON_AUTHORITATIVE_INFORMATION).body(errorMsg);
+            logger.debug(u.toString());
+            token = JwtUtil.generateToken(u);
+        }
+        catch (Exception e) {
+            String msg = e.getMessage();
+            if (msg == null) msg = "BAD REQUEST!";
+            logger.error(msg);
+            return ResponseEntity.status(HttpServletResponse.SC_BAD_REQUEST).body(msg);
+        }
+
+        return ResponseEntity.status(HttpServletResponse.SC_OK).body(tokenKeyWord + ":" + tokenType + " " + token);
     }
 }
