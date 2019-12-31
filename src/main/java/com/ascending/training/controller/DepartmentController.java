@@ -18,3 +18,9 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = {"/departments", "/depts"})
+public class DepartmentController {
+    @Autowired private Logger logger;
+    @Autowired private DepartmentService departmentService;
+
+
+}
