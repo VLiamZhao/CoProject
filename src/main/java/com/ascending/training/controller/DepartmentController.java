@@ -22,5 +22,11 @@ public class DepartmentController {
     @Autowired private Logger logger;
     @Autowired private DepartmentService departmentService;
 
+    @RequestMapping(value = "", method = RequestMethod.GET, produces = {MediaType.APPLICATION_XML_VALUE})
+    public List<Department> getDepartments() {
+        List<Department> departments = departmentService.getDepartments();
+        return departments;
+    }
 
+    
 }
