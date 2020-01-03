@@ -34,5 +34,11 @@ public class DepartmentController {
         return departments;
     }
 
+    @RequestMapping(value = "/{deptName}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public Department getDepartment(@PathVariable String deptName) {
+        Department department = departmentService.getDepartmentByName(deptName);
+        return department;
+    }
+   
 
 }
