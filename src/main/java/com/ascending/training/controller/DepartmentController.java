@@ -55,6 +55,13 @@ public class DepartmentController {
         return updateDep;
     }
 
-
+    @RequestMapping(value = "/{deptName}", method = RequestMethod.DELETE, consumes = {MediaType.APPLICATION_JSON_VALUE})
+    public String deleteDepartment(@PathVariable String deptName) {
+        logger.debug("Department name: " + deptName);
+        String msg = "The department was deleted.";
+        boolean isSuccess = departmentService.delete(deptName);
+        if (!isSuccess) msg = "The department was not deleted.";
+        return msg;
+    }
 
 }
