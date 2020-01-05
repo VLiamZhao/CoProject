@@ -39,6 +39,14 @@ public class DepartmentController {
         Department department = departmentService.getDepartmentByName(deptName);
         return department;
     }
+    @RequestMapping(value = "", method = RequestMethod.POST, consumes = {MediaType.APPLICATION_JSON_VALUE})
+    public Department creatDepartment(@RequestBody Department department) {
+        logger.debug("Department: " + department.toString());
+        Department dep = departmentService.save(department);
+        if (dep!=null) logger.error("The department was not created.");
+        return dep;
+    }
+
    
 
 }
