@@ -47,6 +47,14 @@ public class DepartmentController {
         return dep;
     }
 
-   
+    @RequestMapping(value = "", method = RequestMethod.PUT, consumes = {MediaType.APPLICATION_JSON_VALUE})
+    public Department updateDepartment(@RequestBody Department department) {
+        logger.debug("Department: " + department.toString());
+        Department updateDep = departmentService.update(department);
+        if (updateDep!=null) logger.error("The department was not updated.");
+        return updateDep;
+    }
+
+
 
 }
