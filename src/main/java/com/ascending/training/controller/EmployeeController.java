@@ -32,4 +32,11 @@ public class EmployeeController {
         return employeeService.getEmployeeByName(name);
     }
 
+    @RequestMapping(value = "/{deptName}", method = RequestMethod.POST, consumes = {MediaType.APPLICATION_JSON_VALUE})
+    public Employee creatEmployee(@RequestBody Employee employee, @PathVariable String deptName) {
+        logger.debug(String.format("Department name: %s, employee: %s", deptName, employee.toString()));
+        Employee emp = employeeService.save(employee, deptName);
+        if (emp!=null) logger.error("The employee was not created.");
+        return emp;
+    }
 }
