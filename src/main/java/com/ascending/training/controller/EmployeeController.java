@@ -19,5 +19,8 @@ import java.util.List;
 @RestController
 @RequestMapping(value = {"/ems", "/employees"})
 public class EmployeeController {
-   
+    @Autowired private Logger logger;
+    @Autowired private EmployeeService employeeService;
+
+
 }
