@@ -27,5 +27,9 @@ public class EmployeeController {
         return employeeService.getEmployees();
     }
 
-   
+    @RequestMapping(value = "/{name}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public Employee getEmployee(@PathVariable String name) {
+        return employeeService.getEmployeeByName(name);
+    }
+
 }
