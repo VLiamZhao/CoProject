@@ -1,0 +1,23 @@
+/*
+ *  Copyright 2019, Liwei Wang <daveywang@live.com>.
+ *  All rights reserved.
+ *  Author: Liwei Wang
+ *  Date: 06/2019
+ */
+
+package com.ascending.training.controller;
+
+import com.ascending.training.model.Employee;
+import com.ascending.training.service.EmployeeService;
+import org.slf4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping(value = {"/ems", "/employees"})
+public class EmployeeController {
+   
+}
