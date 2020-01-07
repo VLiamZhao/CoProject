@@ -22,5 +22,10 @@ public class EmployeeController {
     @Autowired private Logger logger;
     @Autowired private EmployeeService employeeService;
 
+    @RequestMapping(value = "", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public List<Employee> getEmployees() {
+        return employeeService.getEmployees();
+    }
 
+   
 }
