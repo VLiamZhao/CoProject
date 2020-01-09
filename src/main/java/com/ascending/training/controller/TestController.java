@@ -16,5 +16,8 @@ import java.util.Map;
 
 @RestController
 @RequestMapping(value = {"/test"})
+public class TestController {
+    @Autowired private Logger logger;
 
+    
 }
