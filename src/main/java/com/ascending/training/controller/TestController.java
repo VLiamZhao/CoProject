@@ -25,5 +25,11 @@ public class TestController {
         return p1 + ", " + p2;
     }
 
-   
+    @RequestMapping(value = "/all-path/{pathValue1}/{pathValue2}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public Map<String, String> getPath(@PathVariable Map<String, String> allPathValues) {
+        logger.info(String.format(">>>>>>>>>> Path value: %s", allPathValues.entrySet()));
+        return allPathValues;
+    }
+
+    
 }
