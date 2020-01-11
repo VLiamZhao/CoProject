@@ -31,5 +31,11 @@ public class TestController {
         return allPathValues;
     }
 
-    
+    @RequestMapping(value = "/param", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public String getParam(@RequestParam(name = "param") String param) {
+        logger.info(String.format(">>>>>>>>>> Param: %s", param));
+        return param;
+    }
+
+   
 }
