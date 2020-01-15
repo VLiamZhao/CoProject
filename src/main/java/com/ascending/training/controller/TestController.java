@@ -43,5 +43,11 @@ public class TestController {
         return allParams;
     }
 
+    @RequestMapping(value = "/header", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public String getHeader(@RequestHeader(name = "token") String token) {
+        logger.info(String.format(">>>>>>>>>> Token: %s", token));
+        return token;
+    }
+
     
 }
