@@ -61,5 +61,11 @@ public class TestController {
         return body;
     }
 
-   
+    /*
+    @RequestMapping(value = "/attr", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public String getAttribute(@RequestAttribute String attr) {
+        logger.info(String.format(">>>>>>>>>> Attribute: %s", attr));
+        return attr;
+    }
+    */
 }
