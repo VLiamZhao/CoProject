@@ -55,5 +55,11 @@ public class TestController {
         return headers;
     }
 
-    
+    @RequestMapping(value = "/body", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public String getBody(@RequestBody String body) {
+        logger.info(String.format(">>>>>>>>>> Body: %s", body));
+        return body;
+    }
+
+   
 }
