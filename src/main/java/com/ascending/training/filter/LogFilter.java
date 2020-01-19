@@ -39,5 +39,9 @@ public class LogFilter implements Filter {
         filterChain.doFilter(request, response);
     }
 
-    
+    public void destroy() {
+        // TODO Auto-generated method stub
+    }
+
+   
 }
