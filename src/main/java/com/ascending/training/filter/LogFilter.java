@@ -62,6 +62,14 @@ public class LogFilter implements Filter {
         Enumeration<String> parameterNames = req.getParameterNames();
         List<String> parameters = new ArrayList();
 
+        while (parameterNames.hasMoreElements()) {
+            String paramName = parameterNames.nextElement();
+            if (isIgnoredWord(paramName, excludedWords)) continue;
+
+            String paramValues = Arrays.asList(req.getParameterValues(paramName)).toString();
+            parameters.add(paramName + "=" + paramValues);
+        }
+
        
     }
 }
