@@ -51,5 +51,17 @@ public class LogFilter implements Filter {
         return false;
     }
 
-    
+    private String logInfo(HttpServletRequest req) {
+        String formData = null;
+        String httpMethod = req.getMethod();
+
+        Date startDateTime = new Date();
+        String requestURL = req.getRequestURI();
+        String userIP = req.getRemoteHost();
+        String sessionID = req.getSession().getId();
+        Enumeration<String> parameterNames = req.getParameterNames();
+        List<String> parameters = new ArrayList();
+
+       
+    }
 }
