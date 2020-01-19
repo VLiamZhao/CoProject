@@ -43,5 +43,13 @@ public class LogFilter implements Filter {
         // TODO Auto-generated method stub
     }
 
-   
+    private boolean isIgnoredWord(String word, List<String> excludedWords) {
+        for (String excludedWord : excludedWords) {
+            if (word.toLowerCase().contains(excludedWord)) return true;
+        }
+
+        return false;
+    }
+
+    
 }
