@@ -25,5 +25,10 @@ public class LogFilter implements Filter {
     private final List<String> excludedWords = Arrays.asList("newPasswd", "confirmPasswd", "passwd", "password");
     private SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss,SSS");
 
+    @Override
+    public void init(FilterConfig filterConfig) {
+        // TODO Auto-generated method stub
+    }
 
+   
 }
