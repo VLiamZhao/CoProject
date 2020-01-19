@@ -70,6 +70,17 @@ public class LogFilter implements Filter {
             parameters.add(paramName + "=" + paramValues);
         }
 
-       
+        if (!parameters.isEmpty()) {
+            formData = parameters.toString().replaceAll("^.|.$", "");
+        }
+
+        return  new StringBuilder("| ")
+                .append(formatter.format(startDateTime)).append(" | ")
+                .append(userIP).append(" | ")
+                .append(httpMethod).append(" | ")
+                .append(requestURL).append(" | ")
+                .append(sessionID).append(" | ")
+                .append("responseTime ms").append(" | ")
+                .append(formData).toString();
     }
 }
