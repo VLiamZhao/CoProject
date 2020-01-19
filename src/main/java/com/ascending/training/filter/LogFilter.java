@@ -30,5 +30,14 @@ public class LogFilter implements Filter {
         // TODO Auto-generated method stub
     }
 
-   
+    @Override
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain) throws IOException, ServletException {
+        long startTime = System.currentTimeMillis();
+        HttpServletRequest req = (HttpServletRequest)request;
+        String logInfo = logInfo(req);
+        logger.info(logInfo.replace("responseTime", String.valueOf(System.currentTimeMillis() - startTime)));
+        filterChain.doFilter(request, response);
+    }
+
+    
 }
