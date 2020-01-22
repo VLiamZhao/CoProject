@@ -23,6 +23,11 @@ public class SecurityFilter implements Filter {
     @Autowired private Logger logger;
     private static String AUTH_URI = "/auth";
 
-  
 
+    @Override
+    public void init(FilterConfig filterConfig) {
+        // TODO Auto-generated method stub
+    }
+
+    
 }
