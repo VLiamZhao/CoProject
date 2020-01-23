@@ -29,5 +29,13 @@ public class SecurityFilter implements Filter {
         // TODO Auto-generated method stub
     }
 
+    @Override
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain) throws IOException, ServletException {
+        HttpServletRequest req = (HttpServletRequest)request;
+        int statusCode = authorization(req);
+        if (statusCode == HttpServletResponse.SC_ACCEPTED) filterChain.doFilter(request, response);
+        else ((HttpServletResponse)response).sendError(statusCode);
+    }
+
     
 }
