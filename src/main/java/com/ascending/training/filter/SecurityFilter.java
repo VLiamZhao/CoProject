@@ -47,6 +47,15 @@ public class SecurityFilter implements Filter {
         String verb = req.getMethod();
         if (uri.equalsIgnoreCase(AUTH_URI)) return HttpServletResponse.SC_ACCEPTED;
 
-       
+        try {
+            
+
+            logger.debug(String.format("Verb: %s, allowed resources: %s", verb, allowedResources));
+        }
+        catch (Exception e) {
+            logger.error(e.getMessage());
+        }
+
+        return statusCode;
     }
 }
