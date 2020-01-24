@@ -41,5 +41,12 @@ public class SecurityFilter implements Filter {
         // TODO Auto-generated method stub
     }
 
-    
+    private int authorization(HttpServletRequest req) {
+        int statusCode = HttpServletResponse.SC_UNAUTHORIZED;
+        String uri = req.getRequestURI();
+        String verb = req.getMethod();
+        if (uri.equalsIgnoreCase(AUTH_URI)) return HttpServletResponse.SC_ACCEPTED;
+
+       
+    }
 }
