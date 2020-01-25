@@ -60,7 +60,12 @@ public class SecurityFilter implements Filter {
                 case "DELETE" : allowedResources = (String)claims.get("allowedDeleteResources"); break;
             }
 
-            
+            for (String s : allowedResources.split(",")) {
+                if (uri.trim().toLowerCase().startsWith(s.trim().toLowerCase())) {
+                    statusCode = HttpServletResponse.SC_ACCEPTED;
+                    break;
+                }
+            }
 
             logger.debug(String.format("Verb: %s, allowed resources: %s", verb, allowedResources));
         }
