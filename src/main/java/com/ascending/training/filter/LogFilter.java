@@ -19,7 +19,6 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 @WebFilter(filterName = "logFilter", urlPatterns = {"/*"}, dispatcherTypes = {DispatcherType.REQUEST})
-
 public class LogFilter implements Filter {
     private Logger logger = LoggerFactory.getLogger(getClass());
     private final List<String> excludedWords = Arrays.asList("newPasswd", "confirmPasswd", "passwd", "password");
@@ -83,4 +82,5 @@ public class LogFilter implements Filter {
                 .append("responseTime ms").append(" | ")
                 .append(formData).toString();
     }
+
 }

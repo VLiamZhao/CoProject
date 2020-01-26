@@ -39,6 +39,7 @@ public class DepartmentController {
         Department department = departmentService.getDepartmentByName(deptName);
         return department;
     }
+
     @RequestMapping(value = "", method = RequestMethod.POST, consumes = {MediaType.APPLICATION_JSON_VALUE})
     public Department creatDepartment(@RequestBody Department department) {
         logger.debug("Department: " + department.toString());
@@ -63,5 +64,4 @@ public class DepartmentController {
         if (!isSuccess) msg = "The department was not deleted.";
         return msg;
     }
-
 }
