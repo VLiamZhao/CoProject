@@ -22,5 +22,15 @@ public class DepartmentDaoTest {
         departmentDao = new DepartmentDao();
     }
 
-  
+    @Test
+    public void getDepartmentsTest() {
+        List<Department> departments = departmentDao.getDepartments();
+        int expectedNumOfDept = 4;
+
+        for (Department department : departments) {
+            System.out.println(department);
+        }
+
+        Assert.assertEquals(expectedNumOfDept, departments.size());
+    }
 }
