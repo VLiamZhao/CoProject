@@ -13,5 +13,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class EmployeeDaoTest {
-   
+    private EmployeeDao employeeDao;
+    private String employeeName = "dwang";
+
+
 }
