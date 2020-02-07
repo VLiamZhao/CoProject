@@ -20,5 +20,10 @@ public class EmployeeDaoTest {
         employeeDao = new EmployeeDao();
     }
 
-   
+    @Test
+    public void getEmployeeTest() {
+        Employee employee = employeeDao.getEmployee(employeeName);
+        Assert.assertEquals(employeeName, employee.getName());
+    }
+
 }
