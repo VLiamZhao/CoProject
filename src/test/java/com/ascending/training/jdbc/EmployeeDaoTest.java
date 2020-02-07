@@ -15,6 +15,10 @@ import org.junit.Test;
 public class EmployeeDaoTest {
     private EmployeeDao employeeDao;
     private String employeeName = "dwang";
+    @Before
+    public void init() {
+        employeeDao = new EmployeeDao();
+    }
 
-
+   
 }
