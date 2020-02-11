@@ -34,5 +34,14 @@ public class DepartmentDaoTest {
         //departmentDao = new DepartmentDaoImpl();
     }
 
-  
+    @Test
+    public void getDepartments() {
+        List<Department> departments = departmentService.getDepartments();
+        int expectedNumOfDept = 4;
+
+        departments.forEach(dept -> System.out.println(dept));
+        Assert.assertEquals(expectedNumOfDept, departments.size());
+    }
+
+
 }
