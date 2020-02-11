@@ -65,6 +65,13 @@ public class DepartmentDaoTest {
         Assert.assertEquals(location, department.getLocation());
     }
 
+    @Test
+    public void getDepartmentAndEmployeesTest() {
+        String deptName = "R&D";
+        List<Object[]> resultList = departmentService.getDepartmentAndEmployees(deptName);
+        Assert.assertEquals(2, resultList.size());
+    }
 
+   
 
 }
