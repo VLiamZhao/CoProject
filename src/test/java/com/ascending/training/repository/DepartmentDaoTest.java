@@ -72,6 +72,12 @@ public class DepartmentDaoTest {
         Assert.assertEquals(2, resultList.size());
     }
 
-   
+    @Test
+    public void getDepartmentAndEmployeesAndAccountsTest() {
+        String deptName = "R&D";
+        List<Object[]> resultList = departmentService.getDepartmentAndEmployeesAndAccounts(deptName);
+        Assert.assertEquals(2, resultList.size());
+        Assert.assertEquals(3, resultList.get(1).length);
+    }
 
 }
