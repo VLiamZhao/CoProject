@@ -54,6 +54,17 @@ public class DepartmentDaoTest {
         Assert.assertEquals(deptName, department.getName());
     }
 
-    
+    @Test
+    public void updateDepartmentLocation() {
+        String deptName = "R&D";
+        String location = "11126 Fairhaven Court, Fairfax, VA";
+        Department department = departmentService.getDepartmentByName(deptName);
+        department.setLocation(location);
+        departmentService.update(department);
+        department = departmentService.getDepartmentByName(deptName);
+        Assert.assertEquals(location, department.getLocation());
+    }
+
+
 
 }
