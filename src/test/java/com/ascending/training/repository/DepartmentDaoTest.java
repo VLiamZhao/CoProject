@@ -42,6 +42,18 @@ public class DepartmentDaoTest {
         departments.forEach(dept -> System.out.println(dept));
         Assert.assertEquals(expectedNumOfDept, departments.size());
     }
+    @Test
+    public void getDepartmentByName() {
+        String deptName = "HR";
+        Department department = departmentService.getDepartmentByName(deptName);
 
+        logger.info(department.toString());
+        logger.info(department.getEmployees().toString());
+        logger.info(department.getEmployees().stream().findFirst().get().getAccounts().toString());
+
+        Assert.assertEquals(deptName, department.getName());
+    }
+
+    
 
 }
