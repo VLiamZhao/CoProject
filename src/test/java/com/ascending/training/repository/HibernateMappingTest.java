@@ -25,6 +25,17 @@ public class HibernateMappingTest {
         String hql = "FROM Department";
         List<Department> departments = null;
 
-       
+        try (
+                Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Query<Department> query = session.createQuery(hql);
+            departments = query.list();
+        }
+        catch (Exception e) {
+            logger.error(e.getMessage());
+        }
+
+        departments.forEach(dept -> logger.info(dept.toString()));
+
+        Assert.assertNotNull(departments);
     }
 }
