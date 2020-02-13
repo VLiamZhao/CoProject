@@ -52,5 +52,19 @@ public class EmployeeDaoTest {
         Assert.assertEquals(address, employee.getAddress());
     }
 
-    
+    @Test
+    public void save() {
+        Employee employee = new Employee("wzheng", "Wenjia", "Zheng", "wenjia.zheng@ascending.com", "405 North Washington St. Falls Church, VA");
+        Employee employee2 = employeeDao.getEmployeeByName(employee.getName());
+
+        /*
+         * The account will not be saved as cascade = CascadeType.REMOVE defined in Employee class
+         * */
+        Account account = new Account("checking", new BigDecimal(99999.99));
+        Set<Account> accounts = new HashSet();
+        accounts.add(account);
+        employee.setAccounts(accounts);
+
+       
+    }
 }
