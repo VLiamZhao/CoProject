@@ -43,5 +43,14 @@ public class EmployeeDaoTest {
         Assert.assertEquals(expectedNumOfDept, employees.size());
     }
 
+    @Test
+    public void updateEmployeeAddress() {
+        String name = "dwang";
+        String address = "11126 Fairhaven Court, Fairfax, VA";
+        employeeDao.updateEmployeeAddress(name, address);
+        Employee employee = employeeDao.getEmployeeByName(name);
+        Assert.assertEquals(address, employee.getAddress());
+    }
+
     
 }
