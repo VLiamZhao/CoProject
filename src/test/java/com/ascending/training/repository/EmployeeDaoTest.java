@@ -65,6 +65,12 @@ public class EmployeeDaoTest {
         accounts.add(account);
         employee.setAccounts(accounts);
 
-       
+        if (employee2 == null) {
+            employeeDao.save(employee, deptName);
+            employee2 = employeeDao.getEmployeeByName(employee.getName());
+        }
+
+        employee.setId(employee2.getId());
+        Assert.assertEquals(employee, employee2);
     }
 }
