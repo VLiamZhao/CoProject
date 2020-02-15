@@ -76,6 +76,9 @@ public class UserDaoTest {
         Assert.assertNotNull(user.getId());
     }
 
-   
+    @Test
+    public void encryptPassword() {
+        logger.debug("Hashed Password: " + DigestUtils.md5Hex("123456789"));
+    }
 
 }
