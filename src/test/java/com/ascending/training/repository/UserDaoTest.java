@@ -37,5 +37,22 @@ public class UserDaoTest {
     private String email;
     private List<Role> roles = new ArrayList();
 
+    @Before
+    public void init() {
+//        userDao = new UserDaoImpl();
+//        roleDao = new RoleDaoImpl();
+        user = new User();
+        email = "dwang@training.ascendingdc.com";
+        roles.add(roleDao.getRoleByName("Manager"));
+        roles.add(roleDao.getRoleByName("user"));
+        user.setRoles(roles);
+        user.setName("jfang1552");
+        user.setFirstName("John");
+        user.setLastName("Fang");
+        user.setEmail("jfang@ascending.com1552");
+        user.setPassword("jfang123!@#$");
+        userDao.save(user);
+    }
+
    
 }
