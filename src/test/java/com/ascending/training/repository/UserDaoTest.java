@@ -65,6 +65,17 @@ public class UserDaoTest {
         Assert.assertNotNull(u);
         logger.debug(u.toString());
     }
+    @Test
+    public void getUserWithRoleTest() {
+        User result = userDao.getUserByEmail(user.getEmail());
+        assertEquals(result.getRoles().size(),roles.size());
+    }
 
+    @Test
+    public void createUser() {
+        Assert.assertNotNull(user.getId());
+    }
+
+   
 
 }
