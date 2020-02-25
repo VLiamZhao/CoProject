@@ -65,6 +65,7 @@ public class UserDaoTest {
         Assert.assertNotNull(u);
         logger.debug(u.toString());
     }
+
     @Test
     public void getUserWithRoleTest() {
         User result = userDao.getUserByEmail(user.getEmail());
@@ -80,5 +81,4 @@ public class UserDaoTest {
     public void encryptPassword() {
         logger.debug("Hashed Password: " + DigestUtils.md5Hex("123456789"));
     }
-
 }

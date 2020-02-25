@@ -26,7 +26,7 @@ public class HibernateMappingTest {
         List<Department> departments = null;
 
         try (
-                Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Session session = HibernateUtil.getSessionFactory().openSession()) {
             Query<Department> query = session.createQuery(hql);
             departments = query.list();
         }

@@ -42,6 +42,7 @@ public class DepartmentDaoTest {
         departments.forEach(dept -> System.out.println(dept));
         Assert.assertEquals(expectedNumOfDept, departments.size());
     }
+
     @Test
     public void getDepartmentByName() {
         String deptName = "HR";
@@ -79,5 +80,4 @@ public class DepartmentDaoTest {
         Assert.assertEquals(2, resultList.size());
         Assert.assertEquals(3, resultList.get(1).length);
     }
-
 }

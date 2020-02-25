@@ -58,8 +58,8 @@ public class EmployeeDaoTest {
         Employee employee2 = employeeDao.getEmployeeByName(employee.getName());
 
         /*
-         * The account will not be saved as cascade = CascadeType.REMOVE defined in Employee class
-         * */
+        * The account will not be saved as cascade = CascadeType.REMOVE defined in Employee class
+        * */
         Account account = new Account("checking", new BigDecimal(99999.99));
         Set<Account> accounts = new HashSet();
         accounts.add(account);

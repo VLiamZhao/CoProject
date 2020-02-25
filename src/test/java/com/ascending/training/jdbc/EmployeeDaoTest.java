@@ -15,6 +15,7 @@ import org.junit.Test;
 public class EmployeeDaoTest {
     private EmployeeDao employeeDao;
     private String employeeName = "dwang";
+
     @Before
     public void init() {
         employeeDao = new EmployeeDao();
@@ -25,5 +26,4 @@ public class EmployeeDaoTest {
         Employee employee = employeeDao.getEmployee(employeeName);
         Assert.assertEquals(employeeName, employee.getName());
     }
-
 }
