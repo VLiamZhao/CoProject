@@ -25,7 +25,37 @@ public class DepartmentDao {
         Statement stmt = null;
         ResultSet rs = null;
 
-       
+        try {
+            //STEP 2: Open a connection
+            System.out.println("Connecting to database...");
+            conn = DriverManager.getConnection(DB_URL, USER, PASS);
+
+            //STEP 3: Execute a query
+            System.out.println("Creating statement...");
+            stmt = conn.createStatement();
+            String sql;
+            sql = "SELECT * FROM department";
+            rs = stmt.executeQuery(sql);
+
+           
+            }
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        finally {
+            //STEP 6: finally block used to close resources
+            try {
+                if(rs != null) rs.close();
+                if(stmt != null) stmt.close();
+                if(conn != null) conn.close();
+            }
+            catch(SQLException se) {
+                se.printStackTrace();
+            }
+        }
+
+        return departments;
     }
 
 }
