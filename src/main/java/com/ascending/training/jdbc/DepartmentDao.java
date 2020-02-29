@@ -37,7 +37,21 @@ public class DepartmentDao {
             sql = "SELECT * FROM department";
             rs = stmt.executeQuery(sql);
 
-           
+            //STEP 4: Extract data from result set
+            while(rs.next()) {
+                //Retrieve by column name
+                Long id  = rs.getLong("id");
+                String name = rs.getString("name");
+                String description = rs.getString("description");
+                String location = rs.getString("location");
+
+                //Fill the object
+                Department department = new Department();
+                department.setId(id);
+                department.setName(name);
+                department.setDescription(description);
+                department.setLocation(location);
+                departments.add(department);
             }
         }
         catch(Exception e){
